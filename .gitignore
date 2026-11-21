@@ -57,6 +57,11 @@ yarn-error.log
 /.angular
 /.angular/cache
 .sass-cache/
+/expenses.db
+/expenses.db-shm
+/expenses.db-wal
+__pycache__/
+*.py[cod]
 /.nx
 /.nx/cache
 /connect.lock

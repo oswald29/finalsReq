@@ -9,6 +9,9 @@
  * https://ionicframework.com/docs/layout/global-stylesheets
  */
 
+@use './app/home/home.page.scss';
+@use './app/auth/auth.page.scss';
+
 /* Core CSS required for Ionic components to work properly */
 @import "@ionic/angular/css/core.css";
 
@@ -35,3 +38,23 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.system.css';
+
+ion-item,
+ion-input,
+ion-textarea,
+ion-select {
+  --color: #000 !important;
+}
+
+ion-input,
+ion-textarea {
+  --label-color: #36323f !important;
+  --placeholder-color: #777 !important;
+}
+
+ion-input::part(native),
+ion-textarea::part(native) {
+  color: #000 !important;
+  -webkit-text-fill-color: #000 !important;
+  opacity: 1 !important;
+}

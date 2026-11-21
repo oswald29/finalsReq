@@ -1,27 +1,1006 @@
-#container {
-  text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+app-home {
+  --ink: #242039;
+  --muted: #8b879d;
+  --purple: #7658d8;
+  --purple-dark: #6042c2;
+  --surface: #fff;
+  --page: #f7f5fc;
+  display: block;
+  color: #242039;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+app-home ion-content {
+  --background:
+    radial-gradient(ellipse at 4% 5%, rgb(194 178 255 / 22%), transparent 34%),
+    radial-gradient(ellipse at 96% 32%, rgb(207 194 255 / 16%), transparent 30%),
+    linear-gradient(160deg, #fbfaff 0%, #f5f2fb 52%, #faf8fd 100%);
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
+.app-shell {
+  width: min(100% - 36px, 560px);
+  margin: 0 auto;
+  padding: max(26px, env(safe-area-inset-top)) 0 calc(110px + env(safe-area-inset-bottom));
+  color: #242039;
+}
 
-  color: #8c8c8c;
+.topbar,
+.welcome-line,
+.section-heading,
+.balance-heading,
+.budget-meta,
+.balance-foot,
+.transaction-row,
+.breakdown-label,
+.insight-card,
+.settings-row,
+.modal-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
+.topbar {
+  margin-bottom: 30px;
+}
+
+app-home .eyebrow {
+  margin: 0 0 6px;
+  color: #71658f;
+  font-size: 0.65rem;
+  font-weight: 750;
+  letter-spacing: 0.15em;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+app-home .topbar h1 {
+  margin: 0;
+  color: #242039;
+  font-size: 1.65rem;
+  font-weight: 750;
+  letter-spacing: -0.035em;
+}
+
+.avatar-button,
+.profile-avatar {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  color: #fff;
+  background: linear-gradient(145deg, #a18cec, var(--purple));
+  font-weight: 750;
+}
+
+.welcome-line {
+  align-items: flex-end;
+  margin: 0 2px 18px;
+}
+
+app-home .welcome-line .muted,
+app-home .welcome-line h2 {
   margin: 0;
 }
 
-#container a {
-  text-decoration: none;
+app-home .welcome-line .muted {
+  color: #77718d;
+  font-size: 0.85rem;
+}
+
+app-home .welcome-line h2 {
+  margin-top: 4px;
+  color: #242039;
+  font-size: 1.25rem;
+  letter-spacing: -0.025em;
+}
+
+.welcome-line h2 span {
+  color: #e9aa4c;
+}
+
+.month-label {
+  padding-bottom: 3px;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.balance-card {
+  overflow: hidden;
+  padding: 22px;
+  border-radius: 22px;
+  color: #fff;
+  background:
+    radial-gradient(ellipse at 92% 3%, rgb(255 255 255 / 18%), transparent 42%),
+    linear-gradient(135deg, #765bd5, #6848c5 65%, #563ca8);
+  box-shadow: 0 14px 28px rgb(105 76 190 / 20%);
+}
+
+.balance-heading {
+  color: rgb(255 255 255 / 78%);
+  font-size: 0.85rem;
+}
+
+.balance-heading ion-icon {
+  font-size: 1.2rem;
+}
+
+.balance-value {
+  display: block;
+  margin: 14px 0 20px;
+  font-size: clamp(2rem, 9vw, 2.65rem);
+  font-weight: 750;
+  letter-spacing: -0.045em;
+}
+
+.budget-exceeded-message {
+  display: inline-block;
+  margin: -10px 0 14px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  color: #b42318;
+  background: #fff0ef;
+  font-size: 0.78rem;
+  font-weight: 750;
+}
+
+.budget-meta,
+.balance-foot {
+  color: rgb(255 255 255 / 78%);
+  font-size: 0.75rem;
+}
+
+.progress-track,
+.breakdown-track {
+  overflow: hidden;
+  height: 7px;
+  border-radius: 10px;
+  background: rgb(255 255 255 / 22%);
+}
+
+.progress-track {
+  margin: 10px 0 12px;
+}
+
+.progress-track span,
+.breakdown-track span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: #fff;
+  transition: width 180ms ease;
+}
+
+.balance-foot button,
+.text-button {
+  padding: 4px 0;
+  border: 0;
+  color: inherit;
+  background: transparent;
+  font: inherit;
+  font-weight: 700;
+}
+
+.balance-foot button {
+  color: #fff;
+  font-size: 0.73rem;
+}
+
+.quick-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 16px 0 30px;
+}
+
+.stat-card {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 11px;
+  padding: 14px 12px;
+  border: 1px solid #f0eef5;
+  border-radius: 17px;
+  background: var(--surface);
+}
+
+.stat-card p {
+  margin: 0 0 5px;
+  color: var(--muted);
+  font-size: 0.7rem;
+}
+
+.stat-card strong {
+  display: block;
+  overflow: hidden;
+  font-size: 0.9rem;
+  text-overflow: ellipsis;
+}
+
+.stat-icon,
+.transaction-icon,
+.settings-icon {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 13px;
+}
+
+.stat-icon {
+  width: 38px;
+  height: 38px;
+  font-size: 1.1rem;
+}
+
+.lavender {
+  color: #7054cf;
+  background: #f0ecfc;
+}
+
+.peach {
+  color: #d38650;
+  background: #fff1e7;
+}
+
+.section-block {
+  margin: 0 0 28px;
+}
+
+.section-heading {
+  margin-bottom: 13px;
+}
+
+app-home .section-heading h2 {
+  margin: 0;
+  color: #242039;
+  font-size: 1.12rem;
+  letter-spacing: -0.02em;
+}
+
+app-home .section-heading .eyebrow {
+  margin-bottom: 5px;
+}
+
+.text-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--purple);
+  font-size: 0.78rem;
+}
+
+.category-chips {
+  display: flex;
+  overflow-x: auto;
+  gap: 8px;
+  padding: 2px 0 5px;
+  scrollbar-width: none;
+}
+
+.category-chip {
+  flex: 0 0 auto;
+  padding: 9px 13px;
+  border: 1px solid #ece9f3;
+  border-radius: 20px;
+  color: #716d83;
+  background: #fff;
+  font-size: 0.75rem;
+}
+
+.category-chip.selected {
+  border-color: var(--purple);
+  color: #fff;
+  background: var(--purple);
+}
+
+.transaction-list {
+  overflow: hidden;
+  padding: 0 14px;
+  border: 1px solid #f0eef5;
+  border-radius: 18px;
+  background: #fff;
+}
+
+.transaction-row,
+.history-row {
+  min-width: 0;
+  gap: 11px;
+  padding: 14px 0;
+}
+
+.transaction-row + .transaction-row,
+.history-row + .history-row {
+  border-top: 1px solid #f2f0f6;
+}
+
+.transaction-icon {
+  width: 42px;
+  height: 42px;
+  color: #7256d0;
+  background: #f1edfc;
+  font-size: 1.15rem;
+}
+
+.transaction-copy {
+  display: grid;
+  min-width: 0;
+  flex: 1;
+  gap: 4px;
+}
+
+.transaction-copy strong,
+.transaction-amount {
+  overflow: hidden;
+  font-size: 0.83rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.transaction-copy span,
+.transaction-copy small {
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 0.7rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.transaction-amount {
+  flex: 0 0 auto;
+  color: #36314b;
+}
+
+.empty-card,
+.empty-state {
+  color: var(--muted);
+  text-align: center;
+}
+
+.empty-card {
+  display: grid;
+  justify-items: center;
+  padding: 30px 18px;
+  border: 1px dashed #ded9ed;
+  border-radius: 18px;
+  background: #fff;
+}
+
+.empty-card > ion-icon {
+  margin-bottom: 10px;
+  color: #9b87dd;
+  font-size: 1.6rem;
+}
+
+.empty-card p {
+  margin: 0 0 5px;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.empty-card span,
+.empty-state {
+  font-size: 0.8rem;
+}
+
+.grocery-panel {
+  padding: 0 15px;
+  border: 1px solid #f0eef5;
+  border-radius: 17px;
+  background: #fff;
+}
+
+.grocery-panel summary {
+  display: flex;
+  min-height: 54px;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 700;
+  list-style: none;
+}
+
+.grocery-panel summary::-webkit-details-marker {
+  display: none;
+}
+
+.grocery-panel summary span {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.grocery-panel summary ion-icon {
+  color: var(--purple);
+  font-size: 1.15rem;
+}
+
+.grocery-panel summary strong {
+  color: var(--purple);
+  font-size: 0.78rem;
+}
+
+.grocery-content {
+  padding: 0 0 14px;
+}
+
+.grocery-form,
+.budget-form {
+  display: grid;
+  gap: 9px;
+}
+
+.grocery-input-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  align-items: end;
+  gap: 6px;
+}
+
+app-home ion-item {
+  --background: #faf9fc;
+  --border-radius: 12px;
+  --inner-border-width: 0;
+  --padding-start: 12px;
+  border: 1px solid #efedf4;
+  border-radius: 12px;
+  font-size: 0.85rem;
+}
+
+app-home ion-input,
+app-home ion-textarea,
+app-home ion-select {
+  --color: #171522;
+  --placeholder-color: #9a96a5;
+  --label-color: #686476;
+}
+
+.grocery-input-row ion-button,
+.budget-form ion-button {
+  --background: var(--purple);
+  --border-radius: 12px;
+  height: 43px;
+  margin: 0;
+}
+
+.grocery-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 12px 0;
+  border-top: 1px solid #f2f0f6;
+  font-size: 0.75rem;
+}
+
+.grocery-row > div {
+  display: grid;
+  justify-items: end;
+  gap: 3px;
+}
+
+.grocery-row ion-checkbox {
+  --checkbox-background-checked: var(--purple);
+  font-size: 0.8rem;
+}
+
+.inline-error {
+  color: #bd3b52;
+  font-size: 0.8rem;
+}
+
+.delete-toast {
+  position: center;
+  text-align: center;
+  bottom: calc(78px + env(safe-area-inset-bottom));
+  left: 50%;
+  margin: 0;
+  padding: 10px 16px;
+  border-radius: 12px;
+  color: #fff;
+  background: #31845c;
+  font-size: 0.82rem;
+}
+
+.analytics-total {
+  display: grid;
+  gap: 9px;
+  padding: 23px;
+  border: 1px solid #f0eef5;
+  border-radius: 20px;
+  background: #fff;
+}
+
+.analytics-total span,
+.analytics-total p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.analytics-total strong {
+  font-size: 2rem;
+  letter-spacing: -0.04em;
+}
+
+.analytics-section {
+  margin-top: 28px;
+}
+
+.breakdown-list {
+  display: grid;
+  gap: 17px;
+  padding: 17px;
+  border: 1px solid #f0eef5;
+  border-radius: 18px;
+  background: #fff;
+}
+
+.breakdown-item {
+  display: grid;
+  gap: 8px;
+}
+
+.breakdown-label span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+}
+
+.breakdown-label ion-icon {
+  color: var(--purple);
+  font-size: 1rem;
+}
+
+.breakdown-label strong {
+  font-size: 0.8rem;
+}
+
+.breakdown-track {
+  height: 6px;
+  background: #f0eef5;
+}
+
+.breakdown-track span {
+  background: linear-gradient(90deg, #a18bea, var(--purple));
+}
+
+.breakdown-item small {
+  color: var(--muted);
+  font-size: 0.68rem;
+}
+
+.insight-card {
+  gap: 12px;
+  padding: 15px;
+  border: 1px solid #f0eef5;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.insight-card > div {
+  flex: 1;
+}
+
+.insight-card strong {
+  font-size: 0.82rem;
+}
+
+.insight-card p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 0.73rem;
+}
+
+.count-pill {
+  padding: 7px 11px;
+  border-radius: 20px;
+  color: var(--purple);
+  background: #f0ecfc;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.history-filters {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  margin: 10px 0 16px;
+}
+
+.history-filters app-home ion-item {
+  min-width: 0;
+  --padding-start: 8px;
+  font-size: 0.75rem;
+}
+
+.history-row {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #f0eef5;
+}
+
+.purchased-history-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.purchase-select {
+  --checkbox-background-checked: var(--purple);
+  --border-color: #c9c4d8;
+  --border-color-checked: var(--purple);
+}
+
+.purchase-select {
+  flex: 0 0 auto;
+  margin-right: 2px;
+}
+
+.history-row .transaction-copy {
+  flex: 1;
+}
+
+.delete-selected-button {
+  padding: 7px 10px;
+  border: 0;
+  border-radius: 12px;
+  color: #fff;
+  background: #c14a5e;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.delete-selected-button:disabled {
+  opacity: 0.55;
+}
+
+.history-actions {
+  display: grid;
+  justify-items: end;
+  gap: 5px;
+}
+
+.history-actions button {
+  border: 0;
+  color: var(--purple);
+  background: transparent;
+  font-size: 0.72rem;
+}
+
+.history-actions .delete-action {
+  color: #c14a5e;
+}
+
+.history-actions ion-icon {
+  font-size: 1rem;
+}
+
+.profile-card {
+  display: grid;
+  justify-items: center;
+  padding: 24px;
+  border: 1px solid #f0eef5;
+  border-radius: 20px;
+  background: #fff;
+  text-align: center;
+}
+
+.profile-avatar {
+  width: 68px;
+  height: 68px;
+  font-size: 1.4rem;
+}
+
+.profile-card h2 {
+  margin: 13px 0 5px;
+  font-size: 1.1rem;
+}
+
+.profile-card > p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.settings-section {
+  margin-top: 27px;
+}
+
+.budget-form ion-button {
+  margin-top: 4px;
+}
+
+.success-message {
+  margin: 0;
+  color: #31845c;
+  font-size: 0.78rem;
+}
+
+.settings-list {
+  overflow: hidden;
+  margin: 22px 0;
+  padding: 0 14px;
+  border: 1px solid #f0eef5;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.settings-row {
+  justify-content: flex-start;
+  gap: 12px;
+  padding: 14px 0;
+}
+
+.settings-row + .settings-row {
+  border-top: 1px solid #f2f0f6;
+}
+
+.settings-icon {
+  width: 38px;
+  height: 38px;
+  color: var(--purple);
+  background: #f0ecfc;
+  font-size: 1.05rem;
+}
+
+.settings-row div {
+  display: grid;
+  gap: 4px;
+}
+
+.settings-row strong {
+  font-size: 0.8rem;
+}
+
+.settings-row small {
+  color: var(--muted);
+  font-size: 0.7rem;
+}
+
+.signout-button {
+  --border-radius: 13px;
+  margin: 0 0 10px;
+}
+
+.bottom-nav {
+  position: fixed;
+  z-index: 20;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  min-height: calc(68px + env(safe-area-inset-bottom));
+  padding: 8px max(16px, calc((100vw - 560px) / 2)) calc(8px + env(safe-area-inset-bottom));
+  border-top: 1px solid #efedf4;
+  background: rgb(255 255 255 / 96%);
+  backdrop-filter: blur(12px);
+}
+
+.bottom-nav button {
+  display: grid;
+  min-width: 0;
+  min-height: 48px;
+  justify-items: center;
+  align-content: center;
+  gap: 3px;
+  padding: 2px 0;
+  border: 0;
+  color: #686476;
+  background: transparent;
+  font-size: 0.7rem;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.bottom-nav button > ion-icon {
+  display: block;
+  color: currentColor;
+  font-size: 1.23rem;
+}
+
+.bottom-nav button.active {
+  color: var(--purple);
+  font-weight: 700;
+}
+
+.bottom-nav .nav-add span {
+  display: grid;
+  width: 45px;
+  height: 45px;
+  margin-top: -22px;
+  place-items: center;
+  border: 5px solid var(--page);
+  border-radius: 50%;
+  color: #fff;
+  background: var(--purple);
+  box-sizing: content-box;
+  box-shadow: 0 5px 13px rgb(105 76 190 / 22%);
+}
+
+.bottom-nav .nav-add ion-icon {
+  color: #fff;
+  font-size: 1.45rem;
+}
+
+.modal-backdrop {
+  position: fixed;
+  z-index: 30;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-top: 36px;
+  background: rgb(34 29 55 / 42%);
+}
+
+.backdrop-dismiss {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  border: 0;
+  background: transparent;
+}
+
+.expense-modal {
+  position: relative;
+  z-index: 1;
+  overflow-y: auto;
+  width: min(100%, 560px);
+  max-height: 92%;
+  padding: 23px 20px calc(22px + env(safe-area-inset-bottom));
+  border-radius: 24px 24px 0 0;
+  background: #fff;
+  box-shadow: 0 -12px 40px rgb(34 29 55 / 12%);
+  animation: rise-in 180ms ease-out;
+}
+
+.modal-heading {
+  margin-bottom: 17px;
+}
+
+.modal-heading h2 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.close-button {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  color: #716d83;
+  background: #f3f1f7;
+  font-size: 1.25rem;
+}
+
+.amount-entry {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 12px;
+  padding: 13px 15px;
+  border: 1px solid #e8e3f5;
+  border-radius: 14px;
+  background: #faf9fd;
+}
+
+.amount-entry > label {
+  color: var(--muted);
+  font-size: 0.74rem;
+}
+
+.amount-entry > div {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--purple);
+  font-size: 1.45rem;
+  font-weight: 700;
+}
+
+.amount-entry ion-input {
+  --padding-start: 0;
+  font-size: 1.55rem;
+  font-weight: 700;
+}
+
+.expense-modal form {
+  display: grid;
+  gap: 10px;
+}
+
+.quick-payments {
+  display: grid;
+  gap: 6px;
+  padding: 12px;
+  border: 1px solid #e8e3f5;
+  border-radius: 14px;
+  background: #faf9fd;
+}
+
+.quick-payments p,
+.quick-payments small {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.quick-payments > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+
+.quick-payments ion-button {
+  margin: 0;
+  --padding-start: 9px;
+  --padding-end: 9px;
+}
+
+.expense-modal ion-item {
+  --background: #faf9fc;
+  font-size: 0.85rem;
+}
+
+.save-expense-button {
+  --background: var(--purple);
+  --border-radius: 13px;
+  margin-top: 7px;
+}
+
+@keyframes rise-in {
+  from {
+    transform: translateY(28px);
+    opacity: 0.7;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (min-width: 700px) {
+  .app-shell {
+    padding-top: 32px;
+  }
+
+  .modal-backdrop {
+    align-items: center;
+  }
+
+  .expense-modal {
+    max-height: 85%;
+    border-radius: 24px;
+  }
+}
+
+@media (max-width: 370px) {
+  .app-shell {
+    width: calc(100% - 26px);
+  }
+
+  .balance-card {
+    padding: 18px;
+  }
+
+  .stat-card {
+    gap: 8px;
+    padding: 11px 8px;
+  }
+
+  .stat-icon {
+    width: 34px;
+    height: 34px;
+  }
 }
