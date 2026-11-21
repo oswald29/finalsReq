@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 # finaReq_expenseTracker
-=======
-# Expense Tracker
 
 ## Run locally
 
@@ -16,15 +13,6 @@ Uvicorn serves the native FastAPI ASGI entry point in the root `main.py`. The AP
 
 Expenses and grocery items use collection/detail REST endpoints with GET, POST, PUT, PATCH, and DELETE methods. PATCH accepts only the fields being changed; the Angular grocery checklist uses it when toggling an item's purchased status.
 
-## How the project is organized
-
-- `src\app\auth` contains the sign-in and registration page. It uses an Angular component, form inputs, button events, and simple validation checks.
-- `src\app\home` contains the main page. It uses arrays for expenses and grocery items, `@for` to show lists, and `@if` for messages and page sections. Functions handle actions such as saving or deleting an item.
-- `src\app\services` contains the code that sends requests to the API. The pages subscribe to the request results so they can update when the API responds.
-- `src\app\home\main.py` contains the FastAPI routes and Python functions for accounts, expenses, groceries, and purchase history. The `database` folder contains the SQL table setup and migration scripts.
-
-These are the same basic ideas used throughout the lessons: components and forms, arrays and loops, calculations and conditions, and sending data between the app and an API.
-
 The development API URL is `http://localhost:8000/api`, configured in `src/environments/environment.ts`. For an Android emulator, replace `localhost` with `10.0.2.2`. For a physical phone on a trusted local network, start Uvicorn with `python -m uvicorn main:app --reload --host 0.0.0.0` and use the computer's LAN IP in the Angular environment. Use an HTTPS API URL for a deployed app and update `src/environments/environment.prod.ts`.
 
 ## Stored data
@@ -34,4 +22,3 @@ The FastAPI backend creates `expenses.db` in the project root to preserve accoun
 Run the backend tests with `python -m unittest discover -s src\app\home -p test_main.py -v`.
 
 This backend configuration is for a local school project. Deploy it behind HTTPS and restrict CORS to your app's origin before using real personal or financial data.
->>>>>>> eb5c225 (Upload expenseTracker project)
