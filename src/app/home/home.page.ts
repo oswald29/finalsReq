@@ -4,6 +4,7 @@ import { Component, computed, inject, signal } from '@angular/core';
 import type { OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {
+  AlertController,
   IonButton,
   IonCheckbox,
   IonContent,
@@ -43,6 +44,7 @@ export class HomePage implements OnInit, OnDestroy {
   private readonly groceryService = inject(GroceryService);
   private readonly authService = inject(AuthService);
   private readonly router = inject(Router);
+  private readonly alertController = inject(AlertController);
 
   readonly categories = [
     'Food & Dining',
@@ -232,14 +234,17 @@ export class HomePage implements OnInit, OnDestroy {
     );
   }
 
-  deleteSelectedPurchased(): void {
+  async deleteSelectedPurchased(): Promise<void> {
     const historyIds = new Set(this.purchasedHistory().map((item) => item.id));
     const ids = this.selectedPurchasedIds().filter((id) => historyIds.has(id));
     if (ids.length === 0) {
       this.selectedPurchasedIds.set([]);
       return;
     }
-    if (!window.confirm(`Delete ${ids.length} selected history items?`)) {
+    const confirmed = await this.confirmDelete(
+      `Delete ${ids.length} selected history ${ids.length === 1 ? 'item' : 'items'}?`,
+    );
+    if (!confirmed) {
       return;
     }
 
@@ -330,8 +335,9 @@ export class HomePage implements OnInit, OnDestroy {
     });
   }
 
-  deleteGrocery(id: number): void {
-    if (!window.confirm('Remove this item?')) {
+  async deleteGrocery(id: number): Promise<void> {
+    const confirmed = await this.confirmDelete('Remove this item?');
+    if (!confirmed) {
       return;
     }
     this.groceryService.deleteItem(id).subscribe({
@@ -443,8 +449,9 @@ export class HomePage implements OnInit, OnDestroy {
       .join('');
   }
 
-  deleteExpense(id: Expense['id']): void {
-    if (!window.confirm('Delete this expense?')) {
+  async deleteExpense(id: Expense['id']): Promise<void> {
+    const confirmed = await this.confirmDelete('Delete this expense?');
+    if (!confirmed) {
       return;
     }
 
@@ -453,6 +460,28 @@ export class HomePage implements OnInit, OnDestroy {
       next: () => this.showDeleteToast('Expense deleted.'),
       error: () => this.pageError.set('Could not delete this expense. Please try again.'),
     });
+  }
+
+  private async confirmDelete(message: string): Promise<boolean> {
+    const alert = await this.alertController.create({
+      cssClass: 'delete-confirm-alert',
+      message,
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+        },
+        {
+          text: 'Delete',
+          role: 'destructive',
+          cssClass: 'delete-confirm-button',
+        },
+      ],
+      backdropDismiss: false,
+    });
+    await alert.present();
+    const { role } = await alert.onDidDismiss();
+    return role === 'destructive';
   }
 
   setTitle(value: string | number | null | undefined): void {

@@ -58,3 +58,45 @@ ion-textarea::part(native) {
   -webkit-text-fill-color: #000 !important;
   opacity: 1 !important;
 }
+
+.delete-confirm-alert {
+  --background: #0e0b0b;
+  --max-width: 320px;
+  --width: calc(100% - 32px);
+}
+
+.delete-confirm-alert .alert-wrapper {
+  border: 1px solid #eeeaf5;
+  border-radius: 18px;
+  box-shadow: 0 12px 32px rgb(31 24 49 / 20%);
+}
+
+.delete-confirm-alert .alert-message {
+  color: #d4d3d6;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.delete-confirm-alert .alert-button-group {
+  justify-content: center;
+  gap: 8px;
+  padding: 4px 16px 16px;
+}
+
+.delete-confirm-alert .alert-button {
+  min-width: 96px;
+  border-radius: 999px;
+  font-weight: 700;
+  text-transform: none;
+}
+
+.delete-confirm-alert .alert-button-role-cancel {
+  color: #5f596b;
+  background: #f1eff5;
+}
+
+.delete-confirm-alert .delete-confirm-button {
+  color: #fff;
+  background: #c14a5e;
+}

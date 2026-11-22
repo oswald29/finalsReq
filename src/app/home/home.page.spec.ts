@@ -3,6 +3,7 @@ import { computed, signal, type Signal, type WritableSignal } from '@angular/cor
 import { TestBed } from '@angular/core/testing';
 import type { ComponentFixture } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 import { of, throwError } from 'rxjs';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
@@ -49,6 +50,10 @@ describe('HomePage', () => {
     deleteItem: ReturnType<typeof vi.fn>;
     deletePurchasedHistoryItem: ReturnType<typeof vi.fn>;
     clear: ReturnType<typeof vi.fn>;
+  };
+  let alertRole: 'destructive' | 'cancel';
+  let alertController: {
+    create: ReturnType<typeof vi.fn>;
   };
 
   afterEach(() => {
@@ -114,6 +119,15 @@ describe('HomePage', () => {
       deletePurchasedHistoryItem: vi.fn(() => of(void 0)),
       clear: vi.fn(),
     };
+    alertRole = 'cancel';
+    alertController = {
+      create: vi.fn(() =>
+        Promise.resolve({
+          present: vi.fn(() => Promise.resolve()),
+          onDidDismiss: vi.fn(() => Promise.resolve({ role: alertRole })),
+        }),
+      ),
+    };
 
     await TestBed.configureTestingModule({
       imports: [HomePage],
@@ -121,6 +135,7 @@ describe('HomePage', () => {
         { provide: ExpenseService, useValue: expenseService },
         { provide: AuthService, useValue: authService },
         { provide: GroceryService, useValue: groceryService },
+        { provide: AlertController, useValue: alertController },
         provideRouter([]),
       ],
     }).compileComponents();
@@ -393,37 +408,35 @@ describe('HomePage', () => {
     });
   });
 
-  it('deletes an expense after native confirmation and shows a toast', () => {
-    vi.spyOn(window, 'confirm').mockReturnValue(true);
+  it('deletes an expense after Ionic confirmation and shows a toast', async () => {
+    alertRole = 'destructive';
 
-    component.deleteExpense('expense-1');
+    await component.deleteExpense('expense-1');
 
-    expect(window.confirm).toHaveBeenCalledWith('Delete this expense?');
+    expect(alertController.create).toHaveBeenCalled();
     expect(expenseService.deleteExpense).toHaveBeenCalledWith('expense-1');
     expect(component.deleteToast()).toBe('Expense deleted.');
   });
 
-  it('does not delete an expense when native confirmation is canceled', () => {
-    vi.spyOn(window, 'confirm').mockReturnValue(false);
-
-    component.deleteExpense('expense-1');
+  it('does not delete an expense when Ionic confirmation is canceled', async () => {
+    await component.deleteExpense('expense-1');
 
     expect(expenseService.deleteExpense).not.toHaveBeenCalled();
     expect(component.deleteToast()).toBeNull();
   });
 
-  it('deletes a grocery item after native confirmation and shows a toast', () => {
-    vi.spyOn(window, 'confirm').mockReturnValue(true);
+  it('deletes a grocery item after Ionic confirmation and shows a toast', async () => {
+    alertRole = 'destructive';
 
-    component.deleteGrocery(7);
+    await component.deleteGrocery(7);
 
-    expect(window.confirm).toHaveBeenCalledWith('Remove this item?');
+    expect(alertController.create).toHaveBeenCalled();
     expect(groceryService.deleteItem).toHaveBeenCalledWith(7);
     expect(component.deleteToast()).toBe('Item deleted.');
   });
 
-  it('deletes selected history items after native confirmation and shows a toast', () => {
-    vi.spyOn(window, 'confirm').mockReturnValue(true);
+  it('deletes selected history items after Ionic confirmation and shows a toast', async () => {
+    alertRole = 'destructive';
     groceryService.purchasedHistory.set([
       {
         id: 1,
@@ -446,28 +459,26 @@ describe('HomePage', () => {
     ]);
     component.selectedPurchasedIds.set([1, 2]);
 
-    component.deleteSelectedPurchased();
+    await component.deleteSelectedPurchased();
 
-    expect(window.confirm).toHaveBeenCalledWith('Delete 2 selected history items?');
+    expect(alertController.create).toHaveBeenCalled();
     expect(groceryService.deletePurchasedHistoryItem).toHaveBeenCalledTimes(2);
     expect(component.selectedPurchasedIds()).toEqual([]);
     expect(component.deleteToast()).toBe('2 history items deleted.');
   });
 
-  it('clears stale history selections without asking for confirmation', () => {
-    vi.spyOn(window, 'confirm');
+  it('clears stale history selections without asking for confirmation', async () => {
     component.selectedPurchasedIds.set([1]);
 
-    component.deleteSelectedPurchased();
+    await component.deleteSelectedPurchased();
 
-    expect(window.confirm).not.toHaveBeenCalled();
+    expect(alertController.create).not.toHaveBeenCalled();
     expect(groceryService.deletePurchasedHistoryItem).not.toHaveBeenCalled();
     expect(component.selectedPurchasedIds()).toEqual([]);
     expect(component.selectedPurchasedCount()).toBe(0);
   });
 
-  it('does not delete history items when native confirmation is canceled', () => {
-    vi.spyOn(window, 'confirm').mockReturnValue(false);
+  it('does not delete history items when Ionic confirmation is canceled', async () => {
     groceryService.purchasedHistory.set([
       {
         id: 1,
@@ -490,7 +501,7 @@ describe('HomePage', () => {
     ]);
     component.selectedPurchasedIds.set([1, 2]);
 
-    component.deleteSelectedPurchased();
+    await component.deleteSelectedPurchased();
 
     expect(groceryService.deletePurchasedHistoryItem).not.toHaveBeenCalled();
     expect(component.selectedPurchasedIds()).toEqual([1, 2]);
