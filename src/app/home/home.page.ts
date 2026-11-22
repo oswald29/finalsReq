@@ -76,6 +76,7 @@ export class HomePage implements OnInit, OnDestroy {
   readonly monthlyBudgetInput = signal('');
   readonly profileError = signal<string | null>(null);
   readonly profileSaved = signal(false);
+  readonly darkMode = signal(false);
   readonly expenses = this.expenseService.expenses;
   readonly isLoading = this.expenseService.isLoading;
   readonly serviceError = this.expenseService.error;
@@ -176,6 +177,9 @@ export class HomePage implements OnInit, OnDestroy {
   });
 
   ngOnInit(): void {
+    const savedTheme = localStorage.getItem('expense_tracker_theme');
+    this.darkMode.set(savedTheme === 'dark');
+    this.applyDarkMode(this.darkMode());
     this.expenseService.clear();
     this.groceryService.clear();
     this.loadExpenses();
@@ -434,6 +438,17 @@ export class HomePage implements OnInit, OnDestroy {
     if (tab === 'history') {
       this.selectedCategory.set('all');
     }
+  }
+
+  toggleDarkMode(): void {
+    const enabled = !this.darkMode();
+    this.darkMode.set(enabled);
+    localStorage.setItem('expense_tracker_theme', enabled ? 'dark' : 'light');
+    this.applyDarkMode(enabled);
+  }
+
+  private applyDarkMode(enabled: boolean): void {
+    document.body.classList.toggle('dark', enabled);
   }
 
   showAllTransactions(): void {

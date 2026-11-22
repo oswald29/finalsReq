@@ -275,10 +275,19 @@
       <button type="button" class="profile-back-button" aria-label="Back to home" (click)="selectTab('home')">
         <span aria-hidden="true">←</span>
       </button>
-      <div>
+      <div class="profile-title">
         <p class="eyebrow">MAKE IT YOURS</p>
         <h1>Profile</h1>
       </div>
+      <button
+        type="button"
+        class="theme-toggle-button"
+        [attr.aria-label]="darkMode() ? 'Switch to light mode' : 'Switch to dark mode'"
+        [attr.aria-pressed]="darkMode()"
+        (click)="toggleDarkMode()"
+      >
+        <span aria-hidden="true">{{ darkMode() ? '☀' : '☾' }}</span>
+      </button>
     </header>
     <section class="profile-card">
       <span class="profile-avatar">{{ initials() }}</span>

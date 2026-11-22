@@ -59,6 +59,109 @@ ion-textarea::part(native) {
   opacity: 1 !important;
 }
 
+body.dark {
+  color-scheme: dark;
+  --ion-background-color: #15131d;
+  --ion-text-color: #f7f5fc;
+}
+
+body.dark app-home {
+  --ink: #f7f5fc;
+  --muted: #b1aabd;
+  --surface: #24212f;
+  --page: #15131d;
+  color: #f7f5fc;
+}
+
+body.dark app-home ion-content {
+  --background: linear-gradient(160deg, #1b1825 0%, #15131d 55%, #1a1723 100%);
+}
+
+body.dark app-home .app-shell {
+  color: #f7f5fc;
+}
+
+body.dark app-home .topbar h1,
+body.dark app-home h2,
+body.dark app-home p,
+body.dark app-home strong,
+body.dark app-home small,
+body.dark app-home span {
+  color: #f7f5fc;
+}
+
+body.dark app-home .profile-back-button,
+body.dark app-home .theme-toggle-button,
+body.dark app-home .profile-card,
+body.dark app-home .balance-card,
+body.dark app-home .stat-card,
+body.dark app-home .empty-card,
+body.dark app-home .budget-form ion-item,
+body.dark app-home .grocery-panel,
+body.dark app-home .expense-modal {
+  border-color: #373244;
+  background: #24212f;
+  color: #f7f5fc;
+}
+
+body.dark app-home ion-item,
+body.dark app-home ion-item.item,
+body.dark app-home .expense-modal ion-item {
+  --background: #24212f;
+  border-color: #373244;
+  background: #24212f;
+}
+
+body.dark app-home ion-input,
+body.dark app-home ion-textarea,
+body.dark app-home ion-select {
+  --color: #f7f5fc;
+  --placeholder-color: #aaa4b7;
+  --label-color: #b9b3c5;
+  color: #f7f5fc;
+}
+
+body.dark ion-input::part(native),
+body.dark ion-textarea::part(native) {
+  color: #f7f5fc !important;
+  -webkit-text-fill-color: #f7f5fc !important;
+}
+
+body.dark app-home .bottom-nav {
+  border-top-color: #373244;
+  background: rgb(36 33 47 / 96%);
+}
+
+body.dark app-home .bottom-nav button {
+  color: #b7b1c4;
+}
+
+body.dark app-home .bottom-nav button.active {
+  color: #a78bf7;
+}
+
+body.dark app-home .category-chip,
+body.dark app-home .history-row,
+body.dark app-home .transaction-row,
+body.dark app-home .grocery-row,
+body.dark app-home .settings-list,
+body.dark app-home .settings-row,
+body.dark app-home .modal-backdrop {
+  border-color: #373244;
+}
+
+body.dark app-home .category-chip {
+  background: #24212f;
+}
+
+body.dark app-home .category-chip.selected {
+  background: var(--purple);
+}
+
+body.dark app-home .modal-backdrop {
+  background: rgb(10 8 16 / 72%);
+}
+
 .delete-confirm-alert {
   --background: #0e0b0b;
   --max-width: 320px;
