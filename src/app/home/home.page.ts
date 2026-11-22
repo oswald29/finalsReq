@@ -52,13 +52,13 @@ export class HomePage implements OnInit, OnDestroy {
     'Shopping',
     'Utilities',
     'Entertainment',
-    'Health',
+    'Health & Medicines',
+    'Subscriptions',
     'Other',
     'Food',
     'Transport',
     'Bills',
     'Bills & Utilities',
-    'Games & Recharges',
     'Groceries',
   ];
   readonly quickPayments = [
@@ -66,10 +66,9 @@ export class HomePage implements OnInit, OnDestroy {
     { title: 'Electricity bill', category: 'Bills & Utilities' },
     { title: 'Internet bill', category: 'Bills & Utilities' },
     { title: 'Mobile load', category: 'Bills & Utilities' },
-    { title: 'Mobile Legends diamonds', category: 'Games & Recharges' },
-    { title: 'PUBG Mobile UC', category: 'Games & Recharges' },
-    { title: 'Free Fire diamonds', category: 'Games & Recharges' },
-    { title: 'Genshin Impact Crystals', category: 'Games & Recharges' },
+    { title: 'Health & Medicines', category: 'Health & Medicines' },
+    { title: 'Subscriptions', category: 'Subscriptions' },
+    { title: 'Transportation', category: 'Transportation' },
   ];
   readonly activeTab = signal<'home' | 'history' | 'profile'>('home');
   readonly showExpenseForm = signal(false);

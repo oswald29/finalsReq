@@ -352,7 +352,7 @@
       </div>
       <form (submit)="saveExpense($event)">
         <div class="quick-payments">
-          <p>Quick bill or game top-up</p>
+          <p>Quick expense</p>
           <div>
             @for (payment of quickPayments; track payment.title) {
             <ion-button type="button" size="small" fill="outline" (click)="selectQuickPayment(payment)"
