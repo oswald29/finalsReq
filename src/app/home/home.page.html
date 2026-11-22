@@ -271,7 +271,10 @@
       </div>
     </article>
     } } } @if (activeTab() === 'profile') {
-    <header class="topbar">
+    <header class="topbar profile-topbar">
+      <button type="button" class="profile-back-button" aria-label="Back to home" (click)="selectTab('home')">
+        <span aria-hidden="true">←</span>
+      </button>
       <div>
         <p class="eyebrow">MAKE IT YOURS</p>
         <h1>Profile</h1>
