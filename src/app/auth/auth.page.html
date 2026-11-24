@@ -3,19 +3,18 @@
     <section class="auth-hero">
       <div class="brand-mark"><ion-icon name="wallet-outline"></ion-icon></div>
       <p class="brand-name">Pennywise</p>
-      <h1>Small steps.<br />Better money habits.</h1>
-      <p class="hero-caption">A calmer way to keep track of what matters.</p>
+      <h1>Keep track of your money.</h1>
+      <p class="hero-caption">A simple way to see what you spend and plan your budget.</p>
       <div class="hero-orbit orbit-one"></div>
       <div class="hero-orbit orbit-two"></div>
     </section>
 
     <section class="auth-panel">
       <div class="auth-heading">
-        <p class="eyebrow">{{ isRegistering() ? 'START YOUR JOURNEY' : 'WELCOME BACK' }}</p>
-        <h2>{{ isRegistering() ? 'Create your account' : 'Sign in' }}</h2>
+        <p class="eyebrow">{{ isRegistering() ? 'NEW ACCOUNT' : 'YOUR EXPENSE TRACKER' }}</p>
+        <h2>{{ isRegistering() ? 'Create an account' : 'Sign in' }}</h2>
         <p>
-          {{ isRegistering() ? 'Create an account to keep your finances in one place.' : 'Your spending overview is just
-          a sign-in away.' }}
+          {{ isRegistering() ? 'Enter your details to get started.' : 'Sign in to check your expenses and budget.' }}
         </p>
       </div>
       @if (error()) {
@@ -71,14 +70,11 @@
         </ion-button>
       </form>
       <div class="mode-switch">
-        <span>{{ isRegistering() ? 'Already have an account?' : 'New to Pennywise?' }}</span>
+        <span>{{ isRegistering() ? 'Already have an account?' : 'Need an account?' }}</span>
         <ion-button fill="clear" (click)="toggleMode()"
           >{{ isRegistering() ? 'Sign in' : 'Create account' }}</ion-button
         >
       </div>
-      <p class="privacy-note">
-        <ion-icon name="lock-closed-outline"></ion-icon> Your financial data is private and protected.
-      </p>
     </section>
   </main>
 </ion-content>

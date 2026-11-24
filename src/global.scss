@@ -13,20 +13,20 @@
 @use './app/auth/auth.page.scss';
 
 /* Core CSS required for Ionic components to work properly */
-@import "@ionic/angular/css/core.css";
+@import '@ionic/angular/css/core.css';
 
 /* Basic CSS for apps built with Ionic */
-@import "@ionic/angular/css/normalize.css";
-@import "@ionic/angular/css/structure.css";
-@import "@ionic/angular/css/typography.css";
-@import "@ionic/angular/css/display.css";
+@import '@ionic/angular/css/normalize.css';
+@import '@ionic/angular/css/structure.css';
+@import '@ionic/angular/css/typography.css';
+@import '@ionic/angular/css/display.css';
 
 /* Optional CSS utils that can be commented out */
-@import "@ionic/angular/css/padding.css";
-@import "@ionic/angular/css/float-elements.css";
-@import "@ionic/angular/css/text-alignment.css";
-@import "@ionic/angular/css/text-transformation.css";
-@import "@ionic/angular/css/flex-utils.css";
+@import '@ionic/angular/css/padding.css';
+@import '@ionic/angular/css/float-elements.css';
+@import '@ionic/angular/css/text-alignment.css';
+@import '@ionic/angular/css/text-transformation.css';
+@import '@ionic/angular/css/flex-utils.css';
 
 /**
  * Ionic Dark Mode
@@ -61,24 +61,24 @@ ion-textarea::part(native) {
 
 body.dark {
   color-scheme: dark;
-  --ion-background-color: #15131d;
-  --ion-text-color: #f7f5fc;
+  --ion-background-color: #19211f;
+  --ion-text-color: #eef4ed;
 }
 
 body.dark app-home {
-  --ink: #f7f5fc;
-  --muted: #b1aabd;
-  --surface: #24212f;
-  --page: #15131d;
-  color: #f7f5fc;
+  --ink: #eef4ed;
+  --muted: #bdc9c4;
+  --surface: #242d2b;
+  --page: #19211f;
+  color: #eef4ed;
 }
 
 body.dark app-home ion-content {
-  --background: linear-gradient(160deg, #1b1825 0%, #15131d 55%, #1a1723 100%);
+  --background: #19211f;
 }
 
 body.dark app-home .app-shell {
-  color: #f7f5fc;
+  color: #eef4ed;
 }
 
 body.dark app-home .topbar h1,
@@ -87,57 +87,62 @@ body.dark app-home p,
 body.dark app-home strong,
 body.dark app-home small,
 body.dark app-home span {
-  color: #f7f5fc;
+  color: #eef4ed;
 }
 
 body.dark app-home .profile-back-button,
 body.dark app-home .theme-toggle-button,
 body.dark app-home .profile-card,
-body.dark app-home .balance-card,
 body.dark app-home .stat-card,
 body.dark app-home .empty-card,
 body.dark app-home .budget-form ion-item,
 body.dark app-home .grocery-panel,
 body.dark app-home .expense-modal {
-  border-color: #373244;
-  background: #24212f;
-  color: #f7f5fc;
+  border-color: #3a4843;
+  background: #242d2b;
+  color: #eef4ed;
+}
+
+body.dark app-home .balance-card {
+  border-color: #356a62;
+  background: #205a54;
+  color: #eef4ed;
 }
 
 body.dark app-home ion-item,
 body.dark app-home ion-item.item,
 body.dark app-home .expense-modal ion-item {
-  --background: #24212f;
-  border-color: #373244;
-  background: #24212f;
+  --background: #242d2b;
+  border-color: #3a4843;
+  background: #242d2b;
 }
 
 body.dark app-home ion-input,
 body.dark app-home ion-textarea,
 body.dark app-home ion-select {
-  --color: #f7f5fc;
-  --placeholder-color: #aaa4b7;
-  --label-color: #b9b3c5;
-  color: #f7f5fc;
+  --color: #eef4ed;
+  --placeholder-color: #bdc9c4;
+  --label-color: #bdc9c4;
+  color: #eef4ed;
 }
 
 body.dark ion-input::part(native),
 body.dark ion-textarea::part(native) {
-  color: #f7f5fc !important;
-  -webkit-text-fill-color: #f7f5fc !important;
+  color: #eef4ed !important;
+  -webkit-text-fill-color: #eef4ed !important;
 }
 
 body.dark app-home .bottom-nav {
-  border-top-color: #373244;
-  background: rgb(36 33 47 / 96%);
+  border-top-color: #3a4843;
+  background: #242d2b;
 }
 
 body.dark app-home .bottom-nav button {
-  color: #b7b1c4;
+  color: #bdc9c4;
 }
 
 body.dark app-home .bottom-nav button.active {
-  color: #a78bf7;
+  color: #93d2c2;
 }
 
 body.dark app-home .category-chip,
@@ -147,19 +152,19 @@ body.dark app-home .grocery-row,
 body.dark app-home .settings-list,
 body.dark app-home .settings-row,
 body.dark app-home .modal-backdrop {
-  border-color: #373244;
+  border-color: #3a4843;
 }
 
 body.dark app-home .category-chip {
-  background: #24212f;
+  background: #242d2b;
 }
 
 body.dark app-home .category-chip.selected {
-  background: var(--purple);
+  background: #176b68;
 }
 
 body.dark app-home .modal-backdrop {
-  background: rgb(10 8 16 / 72%);
+  background: rgb(6 17 15 / 75%);
 }
 
 .delete-confirm-alert {

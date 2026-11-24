@@ -1,0 +1,97 @@
+[33mcommit e1c43a80539984b00bb9358d3c4413bdac40a144[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: Rainier-Gav <rainierg0422@gmail.com>
+Date:   Sun Nov 22 17:12:39 2026 +0800
+
+    Add DarkMode
+
+[33mcommit 9e7f3bd8a4d6adc385a21785beed6d21dec6ce76[m
+Author: nielromasanta-brt <nielhapin06@gmail.com>
+Date:   Sun Nov 22 17:06:03 2026 +0800
+
+    Add
+
+[33mcommit f9f4ef51e1f990f12a66e50efaa813a6f74d644f[m
+Author: Rainier-Gav <rainierg0422@gmail.com>
+Date:   Sun Nov 22 16:38:15 2026 +0800
+
+    Update Expense Tracker
+
+[33mcommit e86f3fc225b9d0b62d51c656b7ac67273fc93961[m
+Author: oswald <lalicanoswaldm@gmail.com>
+Date:   Sun Nov 22 15:58:22 2026 +0800
+
+    Update Project
+
+[33mcommit 3776fdb20f15c890190836161a877fc844825bcb[m
+Merge: a036065 578a6b6
+Author: oswald <lalicanoswaldm@gmail.com>
+Date:   Sun Nov 22 12:51:33 2026 +0800
+
+    Merge branch 'nielromasanta-brt'
+
+[33mcommit 578a6b65723613c99d6b081b46910f7f93450830[m[33m ([m[1;31morigin/nielromasanta-brt[m[33m, [m[1;32mnielromasanta-brt[m[33m)[m
+Author: nielromasanta-brt <nielhapin06@gmail.com>
+Date:   Sun Nov 22 12:51:30 2026 +0800
+
+    Update from nielromasanta-brt
+
+[33mcommit a03606567f151b4907b0bbe34b32ae4f092b1d55[m
+Merge: c073200 0c23c15
+Author: oswald <lalicanoswaldm@gmail.com>
+Date:   Sun Nov 22 12:48:13 2026 +0800
+
+    Merge branch 'main' of https://github.com/oswald29/itipt02-final-requirement-1st-sem-ay2627
+
+[33mcommit c073200f02d17c4f8fd772cbd129d2371fbb8694[m[33m ([m[1;31morigin/rainierg0422-eng[m[33m, [m[1;32mrainierg0422-eng[m[33m)[m
+Author: rainierg0422-eng <rainierg0422@gmail.com>
+Date:   Sun Nov 22 12:42:30 2026 +0800
+
+    Update from rainierg0422-eng
+
+[33mcommit 0c23c156a1d2b54a709c5e63289efafbc49178a8[m
+Merge: 2088257 5163886
+Author: oswald-py <lalicanoswaldm@gmail.com>
+Date:   Sun Nov 22 12:38:10 2026 +0800
+
+    Merge pull request #2 from oswald29/nielromasanta-brt
+    
+    Nielromasanta brt
+
+[33mcommit 2088257a9e7788cb09cf41dd6912462cba232b2d[m
+Merge: 3e8b8eb a14e56f
+Author: oswald-py <lalicanoswaldm@gmail.com>
+Date:   Sun Nov 22 12:37:42 2026 +0800
+
+    Merge pull request #1 from oswald29/rainierg0422-eng
+    
+    Update from rainierg0422-eng
+
+[33mcommit 51638861f654e97e026abb74cff5ef393ffabd85[m
+Author: nielromasanta-brt <nielhapin06@gmail.com>
+Date:   Sun Nov 22 12:35:58 2026 +0800
+
+    Update from nielromasanta-brt
+
+[33mcommit 4af58613a6a75064f48153127e32ea36ffcc2444[m
+Author: nielromasanta-brt <nielhapin06@gmail.com>
+Date:   Sun Nov 22 12:34:24 2026 +0800
+
+    Update from nielromasanta-brt
+
+[33mcommit a14e56f44fec93acbbc0753e9bee17b29f23a764[m
+Author: rainierg0422-eng <rainierg0422@gmail.com>
+Date:   Sun Nov 22 12:31:52 2026 +0800
+
+    Update from rainierg0422-eng
+
+[33mcommit 3e8b8eb0b3770f30c09c04e048fc334adb1c1d33[m
+Author: oswald <lalicanoswaldm@gmail.com>
+Date:   Sat Nov 21 18:23:40 2026 +0800
+
+    Update expenseTracker project
+
+[33mcommit 21669afa0fad6f7c6b6fa0d917d90b5e5c6a73f0[m
+Author: oswald <lalicanoswaldm@gmail.com>
+Date:   Sat Nov 21 18:10:17 2026 +0800
+
+    Remove added README explanation

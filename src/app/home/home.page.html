@@ -3,8 +3,8 @@
     @if (activeTab() === 'home') {
     <header class="topbar">
       <div>
-        <p class="eyebrow">PERSONAL FINANCE</p>
-        <h1>Overview</h1>
+        <p class="eyebrow">MY EXPENSE TRACKER</p>
+        <h1>My expenses</h1>
       </div>
       <button class="avatar-button" type="button" aria-label="Open profile" (click)="selectTab('profile')">
         {{ initials() }}
@@ -13,14 +13,14 @@
 
     <section class="welcome-line">
       <div>
-        <p class="muted">Good to see you,</p>
-        <h2>{{ user()?.name || 'there' }} <span aria-hidden="true">✦</span></h2>
+        <p class="muted">Hi,</p>
+        <h2>{{ user()?.name || 'there' }}</h2>
       </div>
     </section>
 
     <section class="balance-card" aria-label="Monthly budget summary">
       <div class="balance-heading">
-        <span>Budget remaining</span>
+        <span>Money left this month</span>
       </div>
       <strong class="balance-value">{{ budgetRemaining() | currency: 'PHP' : 'symbol' : '1.2-2' }}</strong>
       @if (isBudgetExceeded()) {
@@ -30,7 +30,6 @@
       }
       <div class="budget-meta">
         <span>{{ monthlySpent() | currency: 'PHP' : 'symbol' : '1.0-0' }} spent</span>
-        <span>of {{ monthlyBudget() | currency: 'PHP' : 'symbol' : '1.0-0' }}</span>
       </div>
       <div
         class="progress-track"
@@ -42,7 +41,6 @@
         <span [style.width.%]="budgetProgress()"></span>
       </div>
       <div class="balance-foot">
-        <span>{{ budgetProgress() | number: '1.0-0' }}% of monthly budget used</span>
         <button type="button" (click)="selectTab('profile')">Edit budget</button>
       </div>
     </section>
@@ -50,13 +48,13 @@
     <section class="quick-stats" aria-label="Expense summary">
       <article class="stat-card">
         <div>
-          <p>This month</p>
+          <p>Spent this month</p>
           <strong>{{ monthlySpent() | currency: 'PHP' : 'symbol' : '1.0-0' }}</strong>
         </div>
       </article>
       <article class="stat-card">
         <div>
-          <p>Transactions</p>
+          <p>Expenses this month</p>
           <strong>{{ monthExpenses().length }}</strong>
         </div>
       </article>
@@ -65,7 +63,7 @@
     <section class="section-block">
       <div class="section-heading">
         <div>
-          <p class="eyebrow">YOUR SPENDING</p>
+          <p class="eyebrow">SPENDING BY TYPE</p>
           <h2>Categories</h2>
         </div>
         @if (selectedCategory() !== 'all') {
@@ -89,25 +87,22 @@
     <section class="section-block">
       <div class="section-heading">
         <div>
-          <p class="eyebrow">LATEST ACTIVITY</p>
-          <h2>Recent transactions</h2>
+          <p class="eyebrow">YOUR LATEST ITEMS</p>
+          <h2>Recent expenses</h2>
         </div>
-        <button type="button" class="text-button" (click)="showAllTransactions()">See all</button>
+        <button type="button" class="text-button" (click)="showAllTransactions()">View all</button>
       </div>
       @if (isLoading() && expenses().length === 0) {
       <p class="empty-state" role="status">Loading your expenses…</p>
       } @else if (recentExpenses().length === 0) {
       <div class="empty-card">
-        <p>No transactions yet</p>
-        <span>Add your first expense to get started.</span>
+        <p>There's nothing on the list yet.</p>
       </div>
       } @else {
       <div class="transaction-list">
         @for (expense of recentExpenses(); track expense.id) {
         <article class="transaction-row">
-          <div class="transaction-copy">
-            <strong>{{ expense.title }}</strong><span>{{ expense.category }} · {{ expense.date | date: 'MMM d' }}</span>
-          </div>
+          <div class="transaction-copy"><strong>{{ expense.title }}</strong><span>{{ expense.category }}</span></div>
           <strong class="transaction-amount">−{{ expense.amount | currency: 'PHP' : 'symbol' : '1.2-2' }}</strong>
         </article>
         }
@@ -174,9 +169,6 @@
           <div>
             <small>{{ item.budget | currency: 'PHP' : 'symbol' : '1.2-2' }} each × {{ item.quantity }}</small>
             <strong>{{ groceryLineTotal(item) | currency: 'PHP' : 'symbol' : '1.2-2' }}</strong>
-            @if (item.purchased && item.purchasedAt) {
-            <small>Purchased {{ item.purchasedAt | date: 'MMM d, y, h:mm a' }}</small>
-            }
             <button type="button" class="text-button" (click)="deleteGrocery(item.id)">Remove</button>
           </div>
         </div>
@@ -186,8 +178,8 @@
     } @if (activeTab() === 'history') {
     <header class="topbar">
       <div>
-        <p class="eyebrow">ALL YOUR RECORDS</p>
-        <h1>Transactions</h1>
+        <p class="eyebrow">EXPENSE HISTORY</p>
+        <h1>My transactions</h1>
       </div>
       <span class="count-pill">{{ filteredExpenses().length + filteredPurchasedHistory().length }}</span>
     </header>
@@ -235,7 +227,7 @@
         ></ion-checkbox>
         <div class="transaction-copy">
           <strong>{{ purchase.productName }} × {{ purchase.quantity }}</strong>
-          <span>{{ purchase.category }} · {{ purchase.purchasedAt | date: 'MMM d, yyyy, h:mm a' }}</span>
+          <span>{{ purchase.category }}</span>
           <small>{{ purchase.unitPrice | currency: 'PHP' : 'symbol' : '1.2-2' }} each</small>
         </div>
         <div class="history-actions">
@@ -250,7 +242,7 @@
     <p class="empty-state" role="status">Loading transactions…</p>
     } @else if (filteredExpenses().length === 0 && filteredPurchasedHistory().length === 0) {
     <div class="empty-card">
-      <p>No transactions yet</p>
+      <p>There's nothing on the list yet.</p>
       @if (selectedCategory() !== 'all') {
       <button type="button" class="text-button" (click)="setCategoryFilter('all')">Clear category filter</button>
       }
@@ -258,8 +250,7 @@
     } @else { @for (expense of filteredExpenses(); track expense.id) {
     <article class="history-row">
       <div class="transaction-copy">
-        <strong>{{ expense.title }}</strong
-        ><span>{{ expense.category }} · {{ expense.date | date: 'MMM d, yyyy' }}</span>@if (expense.notes) {
+        <strong>{{ expense.title }}</strong><span>{{ expense.category }}</span>@if (expense.notes) {
         <small>{{ expense.notes }}</small> }
       </div>
       <div class="history-actions">
@@ -276,8 +267,8 @@
         <span aria-hidden="true">←</span>
       </button>
       <div class="profile-title">
-        <p class="eyebrow">MAKE IT YOURS</p>
-        <h1>Profile</h1>
+        <p class="eyebrow">ACCOUNT DETAILS</p>
+        <h1>My profile</h1>
       </div>
       <button
         type="button"
@@ -300,7 +291,7 @@
     <section class="section-block settings-section">
       <div class="section-heading">
         <div>
-          <p class="eyebrow">PREFERENCES</p>
+          <p class="eyebrow">BUDGET SETTINGS</p>
           <h2>Monthly budget</h2>
         </div>
       </div>
@@ -357,8 +348,8 @@
     <section class="expense-modal" role="dialog" aria-modal="true" aria-labelledby="expense-modal-title">
       <div class="modal-heading">
         <div>
-          <p class="eyebrow">RECORD A PURCHASE</p>
-          <h2 id="expense-modal-title">{{ editingId() === null ? 'Add expense' : 'Edit expense' }}</h2>
+          <p class="eyebrow">EXPENSE DETAILS</p>
+          <h2 id="expense-modal-title">{{ editingId() === null ? 'Add an expense' : 'Edit expense' }}</h2>
         </div>
         <button type="button" class="close-button" aria-label="Close" (click)="closeExpenseForm()">×</button>
       </div>
@@ -415,16 +406,6 @@
             <ion-select-option [value]="item">{{ item }}</ion-select-option> }</ion-select
           ></ion-item
         >
-        <ion-item
-          ><ion-input
-            label="Date"
-            labelPlacement="stacked"
-            type="date"
-            [value]="date()"
-            (ionChange)="setDate($event.detail.value)"
-            required
-          ></ion-input
-        ></ion-item>
         <ion-item
           ><ion-textarea
             label="Notes (optional)"

@@ -1,4 +1,4 @@
-import { CurrencyPipe, DatePipe, DecimalPipe } from '@angular/common';
+import { CurrencyPipe } from '@angular/common';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, computed, inject, signal } from '@angular/core';
 import type { OnDestroy, OnInit } from '@angular/core';
@@ -27,8 +27,6 @@ import { GroceryService } from '../services/grocery.service';
   templateUrl: 'home.page.html',
   imports: [
     CurrencyPipe,
-    DatePipe,
-    DecimalPipe,
     IonButton,
     IonCheckbox,
     IonContent,

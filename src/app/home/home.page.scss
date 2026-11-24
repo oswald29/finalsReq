@@ -1044,3 +1044,424 @@ app-home ion-select {
     height: 34px;
   }
 }
+
+app-home {
+  --ink: #263d3d;
+  --muted: #687675;
+  --purple: #176b68;
+  --purple-dark: #125755;
+  --surface: #fff;
+  --page: #f5f4ed;
+  display: block;
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+app-home ion-content {
+  --background: #f5f4ed;
+}
+
+app-home .app-shell {
+  width: min(100% - 32px, 560px);
+  padding-top: max(22px, env(safe-area-inset-top));
+  color: var(--ink);
+}
+
+app-home .topbar h1,
+app-home .section-heading h2 {
+  color: var(--ink);
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+app-home .topbar h1 {
+  font-size: 1.65rem;
+}
+
+app-home .eyebrow {
+  color: #176b68;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.avatar-button,
+.profile-avatar {
+  border: 2px solid #176b68;
+  border-radius: 8px;
+  color: #176b68;
+  background: #e3efea;
+}
+
+app-home .welcome-line .muted {
+  color: var(--muted);
+}
+
+app-home .welcome-line h2 {
+  color: var(--ink);
+  font-size: 1.2rem;
+  letter-spacing: 0;
+}
+
+.balance-card {
+  padding: 20px;
+  border: 2px solid #125755;
+  border-radius: 8px;
+  color: #fff;
+  background: #176b68;
+  box-shadow: 3px 4px 0 #d9e3dd;
+}
+
+.balance-heading,
+.budget-meta,
+.balance-foot {
+  color: #e5eeeb;
+}
+
+.balance-value {
+  font-size: clamp(1.85rem, 9vw, 2.35rem);
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.progress-track {
+  height: 9px;
+  border-radius: 2px;
+  background: rgb(255 255 255 / 28%);
+}
+
+.progress-track span {
+  border-radius: 2px;
+  background: #f0ca63;
+}
+
+.balance-foot button,
+.text-button {
+  color: #176b68;
+}
+
+.balance-foot button {
+  color: #fff;
+}
+
+.quick-stats {
+  gap: 10px;
+}
+
+.stat-card,
+.transaction-list,
+.empty-card,
+.grocery-panel,
+.analytics-total,
+.breakdown-list,
+.insight-card,
+.profile-card,
+.settings-list,
+.expense-modal {
+  border: 1px solid #cfd7d1;
+  border-radius: 7px;
+  background: #fff;
+  box-shadow: 2px 3px 0 #e2e2d8;
+}
+
+.stat-card {
+  padding: 13px;
+}
+
+.stat-card p,
+.analytics-total span,
+.analytics-total p,
+.breakdown-item small,
+.insight-card p {
+  color: var(--muted);
+}
+
+app-home .section-heading h2 {
+  font-size: 1.1rem;
+}
+
+.category-chip {
+  padding: 8px 11px;
+  border-color: #c9d1ce;
+  border-radius: 6px;
+  color: #415653;
+  background: #fff;
+}
+
+.category-chip.selected {
+  border-color: #176b68;
+  color: #fff;
+  background: #176b68;
+}
+
+.transaction-list {
+  padding: 0 13px;
+}
+
+.transaction-row + .transaction-row,
+.history-row + .history-row {
+  border-color: #e1e4dc;
+}
+
+.transaction-copy span,
+.transaction-copy small {
+  color: var(--muted);
+}
+
+.transaction-amount {
+  color: var(--ink);
+}
+
+.empty-card {
+  border-style: dashed;
+  box-shadow: none;
+}
+
+.grocery-panel {
+  padding: 0 13px;
+}
+
+.grocery-panel summary {
+  min-height: 50px;
+  font-size: 0.88rem;
+}
+
+.grocery-panel summary strong,
+.text-button,
+.count-pill,
+.breakdown-label ion-icon {
+  color: #176b68;
+}
+
+app-home ion-item,
+app-home .expense-modal ion-item {
+  --background: #fff;
+  --border-radius: 6px;
+  border-color: #c9d1ce;
+  border-radius: 6px;
+}
+
+app-home ion-input,
+app-home ion-textarea,
+app-home ion-select {
+  --highlight-color-focused: #176b68;
+}
+
+.grocery-input-row ion-button,
+.budget-form ion-button,
+.save-expense-button {
+  --background: #176b68;
+  --border-radius: 6px;
+}
+
+.grocery-row,
+.history-row,
+.settings-row {
+  border-color: #e1e4dc;
+}
+
+.grocery-row ion-checkbox,
+.purchase-select {
+  --checkbox-background-checked: #176b68;
+  --border-color-checked: #176b68;
+}
+
+.count-pill {
+  border: 1px solid #c9d1ce;
+  border-radius: 6px;
+  background: #e3efea;
+}
+
+.delete-selected-button {
+  padding: 6px 9px;
+  border: 1px solid #b85c67;
+  border-radius: 2px;
+  color: #fff;
+  background: #c97780;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.delete-selected-button:disabled {
+  opacity: 0.65;
+}
+
+.history-actions button {
+  color: #176b68;
+}
+
+.profile-card {
+  padding: 21px;
+}
+
+.profile-avatar {
+  width: 60px;
+  height: 60px;
+  font-size: 1.2rem;
+}
+
+.profile-back-button,
+.theme-toggle-button {
+  border: 1px solid #cfd7d1;
+  border-radius: 7px;
+  color: #176b68;
+  background: #fff;
+  box-shadow: 2px 3px 0 #e2e2d8;
+}
+
+.bottom-nav {
+  border-top: 2px solid #cfd7d1;
+  background: #fff;
+  backdrop-filter: none;
+}
+
+.bottom-nav button {
+  color: #687675;
+}
+
+.bottom-nav button.active {
+  color: #176b68;
+}
+
+.bottom-nav .nav-add span {
+  border: 3px solid #fff;
+  border-radius: 7px;
+  background: #176b68;
+  box-shadow: 2px 3px 0 #cfd7d1;
+}
+
+.modal-backdrop {
+  background: rgb(38 61 61 / 45%);
+}
+
+.expense-modal {
+  padding: 22px 18px calc(22px + env(safe-area-inset-bottom));
+  border-radius: 10px 10px 0 0;
+  box-shadow: 0 -4px 0 #e6bd52;
+  animation: none;
+}
+
+.amount-entry,
+.quick-payments {
+  border: 1px solid #cfd7d1;
+  border-radius: 6px;
+  background: #f5f4ed;
+}
+
+.amount-entry > div {
+  color: #176b68;
+}
+
+.close-button {
+  border-radius: 6px;
+  color: #263d3d;
+  background: #e8ebe4;
+}
+
+.inline-error {
+  padding: 8px 10px;
+  border: 1px solid #d88a7c;
+  border-radius: 6px;
+  background: #fff4f1;
+}
+
+.success-message {
+  color: #176b68;
+}
+
+body.dark app-home {
+  --ink: #eef4ed;
+  --muted: #bdc9c4;
+  --surface: #242d2b;
+  --page: #19211f;
+  color: var(--ink);
+}
+
+body.dark app-home ion-content {
+  --background: #19211f;
+}
+
+body.dark app-home .app-shell,
+body.dark app-home .topbar h1,
+body.dark app-home .section-heading h2,
+body.dark app-home .welcome-line h2,
+body.dark app-home .transaction-amount {
+  color: var(--ink);
+}
+
+body.dark app-home .balance-card {
+  border-color: #356a62;
+  background: #205a54;
+  box-shadow: 3px 4px 0 #293b36;
+}
+
+body.dark app-home .stat-card,
+body.dark app-home .transaction-list,
+body.dark app-home .empty-card,
+body.dark app-home .grocery-panel,
+body.dark app-home .analytics-total,
+body.dark app-home .breakdown-list,
+body.dark app-home .insight-card,
+body.dark app-home .profile-card,
+body.dark app-home .settings-list,
+body.dark app-home .expense-modal,
+body.dark app-home .profile-back-button,
+body.dark app-home .theme-toggle-button {
+  border-color: #3a4843;
+  background: #242d2b;
+  color: var(--ink);
+  box-shadow: none;
+}
+
+body.dark app-home .category-chip {
+  border-color: #3a4843;
+  color: var(--ink);
+  background: #242d2b;
+}
+
+body.dark app-home .category-chip.selected {
+  border-color: #2f877c;
+  color: #fff;
+  background: #176b68;
+}
+
+body.dark app-home .bottom-nav {
+  border-top-color: #3a4843;
+  background: #242d2b;
+}
+
+body.dark app-home .bottom-nav button {
+  color: #bdc9c4;
+}
+
+body.dark app-home .bottom-nav button.active,
+body.dark app-home .text-button,
+body.dark app-home .history-actions button {
+  color: #93d2c2;
+}
+
+body.dark app-home .bottom-nav .nav-add span {
+  border-color: #242d2b;
+  background: #176b68;
+}
+
+body.dark app-home .amount-entry,
+body.dark app-home .quick-payments {
+  border-color: #3a4843;
+  background: #1d2724;
+}
+
+@media (min-width: 761px) {
+  app-home .app-shell {
+    width: 100%;
+    max-width: none;
+    min-height: 100vh;
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .expense-modal {
+    width: min(100%, 760px);
+  }
+}
